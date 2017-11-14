@@ -1,0 +1,31 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.postHeader {
+    display: flex;
+    font-weight: bold;
+
+}
+
+.avatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.avatar img {
+    height: 100%;
+    width: 100%;
+}
+

@@ -1,0 +1,32 @@
+
+.App {
+  background-color: lightgray;
+  height: 100%;
+}
+
+.App-logo {
+    width: 5rem;
+}
+
+.App-header {
+  background-color: white;
+  height: 1.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  align-items: center;
+}
