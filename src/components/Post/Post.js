@@ -13,7 +13,9 @@ const Post = () => <article className="post">
       <h1>Gross Domestic Product: Quarter on Quarter growth: CVM SA %</h1>
     </div>
   </div>
-  <Chart/>
+  <div className="chartContainer">
+    <Chart/>
+  </div>
 </article>
 
 export default Post
