@@ -6,18 +6,20 @@ import {
 } from 'react-vis';
 import {YAxis} from "react-vis/es/index";
 
-import output from './output.json'
-const data = output.map((point, index) => ({x: index, y: point.y}))
+import raw from './output.json'
 
+const BarChart = ({data = raw}) => {
 
-const BarChart = ({}) =>
-  <FlexibleXYPlot>
+  const mapped = data.map((point, index) => ({x: index, y: point.y}))
+
+  return <FlexibleXYPlot>
     <VerticalGridLines tickTotal={5}/>
     <HorizontalGridLines/>
-    <VerticalBarSeries data={data}/>
-    <XAxis tickTotal={5} tickFormat={v => output[v].x}/>
+    <VerticalBarSeries data={mapped}/>
+    <XAxis tickTotal={5} tickFormat={v => data[v].x}/>
     <YAxis/>
-  </FlexibleXYPlot>
+  </FlexibleXYPlot>;
+}
 
 
 export default BarChart

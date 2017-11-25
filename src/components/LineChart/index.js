@@ -5,22 +5,25 @@ import {
   GradientDefs, Hint
 } from 'react-vis';
 import {YAxis} from "react-vis/es/index";
-import output2 from './output2.json'
-const data = output2.map((point, index) => ({x: index, y: point.y}))
 
 
 
+import raw from './output2.json'
 
 
+const LineChart = ({data = raw}) => {
 
-const LineChart = ({}) =>
-  <FlexibleXYPlot>
+  const mapped = data.map(({x, y}, index) => ({x: index, y}))
+
+
+  return <FlexibleXYPlot>
     <VerticalGridLines tickTotal={7}/>
-    <HorizontalGridLines />
-    <LineSeries data={data}/>
-    <XAxis tickTotal={7} tickFormat={v => output2[v].x}/>
+    <HorizontalGridLines/>
+    <LineSeries data={mapped}/>
+    <XAxis tickTotal={7} tickFormat={v => data[v].x}/>
     <YAxis/>
-  </FlexibleXYPlot>
+  </FlexibleXYPlot>;
+}
 
 
 export default LineChart
