@@ -7,6 +7,7 @@ import BarChart from "../BarChart/index";
 import Unemployment from "../../posts/Unemployment";
 import Inequality from "../../posts/Inequality";
 import Employment from "../../posts/Employment";
+import Cpih from "../../posts/Cpih";
 
 const posts = [{}]
 
@@ -19,6 +20,7 @@ const PostList = () =>
     <Unemployment/>
     <Inequality/>
     <Employment/>
+    <Cpih/>
   </div>
 
 export default PostList

@@ -4,7 +4,6 @@ const fs = require('fs')
 
 const csvStr = fs.readFileSync('./raw.csv')
 
-
 csv()
   .fromString(csvStr)
   .on('end_parsed', (json) => {
