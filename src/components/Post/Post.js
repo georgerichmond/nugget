@@ -1,9 +1,8 @@
 import React from 'react'
 import './styles.css'
 import avatar from '../../img/personas/ed.jpeg'
-import Chart from '../Chart'
 
-const Post = () => <article className="post">
+const Post = ({chart}) => <article className="post">
   <div className="postHeader">
     <div className="avatar">
       <img src={avatar} alt="Ed"/>
@@ -14,7 +13,7 @@ const Post = () => <article className="post">
     </div>
   </div>
   <div className="chartContainer">
-    <Chart/>
+    {chart}
   </div>
 </article>
 

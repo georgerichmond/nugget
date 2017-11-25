@@ -6,9 +6,7 @@ import * as React from "react";
 
 import parse from 'date-fns/parse'
 import addMonths from 'date-fns/add_months'
-
 const parsed = data.map(point => ({x: new Date(point.x), y: point.y}))
-
 const xTickValues = ['1960', '1970', '1980', '1990', '2000', '2010', '2020'].map(year => addMonths(parse(year), 6))
 const yTickValues = [-3, -2, -1, 0, 1, 2, 3, 4, 5]
 
@@ -27,7 +25,7 @@ const V = () => <VictoryChart padding={padding} domainPadding={domainPadding}
   <VictoryAxis
     style={axisStyle}
     tickFormat={(x) => new Date(x).getFullYear()}
-    tickValues={xTickValues}
+    fixLabelOverlap={true}
     tickLabelComponent={<VictoryLabel dy={100}/>}
 
     tickComponent={<Line type={"tick"} style={{stroke: 'lightgrey'}} y1={280} y2={285}/>}
