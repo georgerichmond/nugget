@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.1",
+    "csvtojson": "^1.1.9",
     "date-fns": "^1.29.0",
     "moment": "^2.19.2",
     "nivo": "^0.30.0",

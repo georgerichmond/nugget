@@ -11,7 +11,6 @@ const barChart = <BarChart data={data}/>
 
 const Unemployment = () => ([
     <Post title="Unemployment rate" chart={lineChart}/>,
-    <Post title="Unemployment rate" chart={barChart}/>
   ]
 )
 

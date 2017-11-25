@@ -6,6 +6,7 @@ import LineChart from '../LineChart'
 import BarChart from "../BarChart/index";
 import Unemployment from "../../posts/Unemployment";
 import Inequality from "../../posts/Inequality";
+import Employment from "../../posts/Employment";
 
 const posts = [{}]
 
@@ -15,9 +16,9 @@ const barChart = <BarChart/>
 const PostList = () =>
   <div className="postList">
     <Post chart={lineChart}></Post>
-    <Post chart={barChart}></Post>
     <Unemployment/>
     <Inequality/>
+    <Employment/>
   </div>
 
 export default PostList

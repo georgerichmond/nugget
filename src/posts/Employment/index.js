@@ -9,10 +9,10 @@ import CategoryChart from "../../components/CategoryChart/index";
 const barChart = <BarChart data={data} category={true}/>
 const categoryChart = <CategoryChart data={data} category={true}/>
 
-const Unemployment = () => ([
-    <Post title="Inequality (vertical bars)" chart={barChart} />,
-    <Post title="Inequality (horizontal bars, sorted)" chart={categoryChart} />
+const Employment = () => ([
+    <Post title="Employment (vertical bars)" chart={barChart} />,
+    <Post title="Employment (horizontal bars, sorted)" chart={categoryChart} />
   ]
 )
 
-export default Unemployment
+export default Employment
