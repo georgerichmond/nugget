@@ -14,8 +14,8 @@ const CategoryChart = ({data}) => {
 
   return (
     <FlexibleWidthXYPlot {...plotProps}>
-      <HorizontalBarSeries data={sorted}/>
       <XAxis/>
+      <HorizontalBarSeries data={sorted}/>
       <YAxis/>
     </FlexibleWidthXYPlot>
   )

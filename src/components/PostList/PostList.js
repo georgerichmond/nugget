@@ -8,6 +8,7 @@ import Unemployment from "../../posts/Unemployment";
 import Inequality from "../../posts/Inequality";
 import Employment from "../../posts/Employment";
 import Cpih from "../../posts/Cpih";
+import Poverty from "../../posts/Poverty";
 
 const posts = [{}]
 
@@ -16,7 +17,7 @@ const barChart = <BarChart/>
 
 const PostList = () =>
   <div className="postList">
-    <Post chart={lineChart}></Post>
+    <Poverty/>
     <Unemployment/>
     <Inequality/>
     <Employment/>
