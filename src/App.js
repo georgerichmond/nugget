@@ -21,10 +21,9 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} alt="" className="App-logo"/>
           </header>
+          <Route path="/upload" component={Upload}/>
           <main>
             <Route exact path="/" component={PostList}/>
-            <Route path="/upload" component={Upload}/>
-            <Route path="/xlsx" component={XLSXPage}/>
           </main>
         </div>
       </Router>
