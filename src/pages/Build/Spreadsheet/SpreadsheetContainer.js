@@ -1,14 +1,21 @@
 import Spreadsheet from "./Spreadsheet";
 import { connect } from "react-redux";
-import _ from "lodash";
+import { PASTE_DATA, EDIT_DATA } from "../actions";
 
 const handleAfterChange = dispatch => (changes, type) => {
-  if (!changes) return;
+  if (type === "edit") {
+    dispatch({
+      type: EDIT_DATA,
+      payload: { changes }
+    });
+  }
 
-  dispatch({
-    type: "TABLE_" + _.snakeCase(type).toUpperCase(),
-    payload: { changes }
-  });
+  if (type === "CopyPaste.paste") {
+    dispatch({
+      type: PASTE_DATA,
+      payload: { changes }
+    });
+  }
 };
 
 const mapStateToProps = ({ build }) => ({ data: build.data });

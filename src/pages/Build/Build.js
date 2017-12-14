@@ -1,17 +1,5 @@
 import React from "react";
-import * as d3 from "d3";
-import _ from "lodash";
-import {
-  Button,
-  Card,
-  Container,
-  Divider,
-  Grid,
-  Image,
-  Segment
-} from "semantic-ui-react";
-import Select from "semantic-ui-react/dist/es/addons/Select/Select";
-import Post from "../../components/Post";
+import { Select } from "semantic-ui-react";
 import Upload from "./Upload";
 import Spreadsheet from "./Spreadsheet";
 import EditablePost from "./EditablePost";

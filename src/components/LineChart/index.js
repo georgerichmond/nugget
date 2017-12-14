@@ -22,10 +22,10 @@ const LineChart = ({ series }) => {
       y: parseFloat(y)
     }));
 
-    return <LineSeries data={mapped} nullAccessor={d => !isNaN(d.y)} />;
+    return <LineSeries key={index} data={mapped} nullAccessor={d => !isNaN(d.y)} />;
   });
 
-  const plotProps = { margin: { left: 30, right: 20, top: 20, bottom: 30 } };
+  const plotProps = { margin: { left: 40, right: 20, top: 20, bottom: 30 } };
 
   return (
     <FlexibleXYPlot {...plotProps}>
