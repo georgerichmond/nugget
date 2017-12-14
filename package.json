@@ -30,6 +30,7 @@
     "react-table": "^6.7.4",
     "react-vis": "^1.7.10",
     "redux": "^3.7.2",
+    "redux-little-router": "^14.2.3",
     "redux-logger": "^3.0.6",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.0",
