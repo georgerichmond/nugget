@@ -3,9 +3,11 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import { reactReduxFirebase, firebaseStateReducer } from "react-redux-firebase";
 import logger from "redux-logger";
+import thunk from 'redux-thunk';
 import Layout from "./Layout/Layout";
-import { routerForBrowser } from 'redux-little-router';
+import { routerForBrowser } from "redux-little-router";
 import routes from "./routes";
+import buildReducer from './pages/Build/reducer'
 
 const firebaseConfig = {
   apiKey: "AIzaSyC2ALnvG2NMd5yp1f0SyDpvX4NM3gai2_M",
@@ -17,19 +19,13 @@ const firebaseConfig = {
 };
 const reduxFirebaseConfig = { userProfile: "users" };
 
-
-
-
-const {
-  reducer,
-  middleware,
-  enhancer
-} = routerForBrowser({
-  routes,
-})
+const { reducer, middleware, enhancer } = routerForBrowser({
+  routes
+});
 
 const createStoreWithFirebaseAndLogger = compose(
   enhancer,
+  applyMiddleware(thunk),
   applyMiddleware(middleware),
   applyMiddleware(logger),
   reactReduxFirebase(firebaseConfig, reduxFirebaseConfig)
@@ -37,7 +33,8 @@ const createStoreWithFirebaseAndLogger = compose(
 
 const rootReducer = combineReducers({
   router: reducer,
-  firebase: firebaseStateReducer
+  firebase: firebaseStateReducer,
+  build: buildReducer
 });
 
 const initialState = {};

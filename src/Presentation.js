@@ -5,7 +5,7 @@ import glamorous from "glamorous";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import Upload from "./pages/Upload";
+import Upload from "./pages/Build";
 import { Image } from "semantic-ui-react";
 
 const Container = glamorous.div({

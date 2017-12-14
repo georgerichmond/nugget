@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import PostList from "../components/PostList/PostList";
 import logo from "../img/nugget-logo.png";
 import glamorous from "glamorous";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import Upload from "../pages/Upload";
+import { Fragment } from "redux-little-router";
+import Home from "../pages/Home";
+import Build from "../pages/Build";
 import Foo from "../Foo";
 
 const Container = glamorous.div({
@@ -32,18 +31,24 @@ const Main = glamorous.div({});
 class Layout extends Component {
   render() {
     return (
-      <Router>
+      <Fragment forRoute="/">
         <Container>
           <Menu borderless>
             <Logo />
           </Menu>
           <Main>
-            <Foo />
-            <Route exact path="/" component={PostList} />
-            <Route path="/upload" component={Upload} />
+            <Fragment forRoute="/">
+              <Home />
+            </Fragment>
+            <Fragment forRoute="/foo">
+              <Foo />
+            </Fragment>
+            <Fragment forRoute="/build">
+              <Build />
+            </Fragment>
           </Main>
         </Container>
-      </Router>
+      </Fragment>
     );
   }
 }
