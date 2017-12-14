@@ -4,7 +4,10 @@ const _ = require("lodash");
 
 const input = fs.readFileSync("./foo.csv").toString();
 const parsed = d3.csvParseRows(input);
-const columns = parsed[0].map(fullText => ({label: fullText, key: _.camelCase(fullText)}));
+const columns = parsed[0].map(fullText => ({
+  label: fullText,
+  key: _.camelCase(fullText)
+}));
 const dataColumns = _.slice(columns, 1);
 const rows = _.slice(parsed, 1);
 const xPoints = rows.map(row => row[0]);

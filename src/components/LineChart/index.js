@@ -1,33 +1,41 @@
-import React from 'react'
-import '../../../node_modules/react-vis/dist/style.css';
+import React from "react";
+import * as d3 from "d3-scale-chromatic";
+import "../../../node_modules/react-vis/dist/style.css";
 import {
-  LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, FlexibleXYPlot, AreaSeries,
-  GradientDefs, Hint
-} from 'react-vis';
-import {YAxis} from "react-vis/es/index";
+  LineSeries,
+  VerticalGridLines,
+  HorizontalGridLines,
+  XAxis,
+  FlexibleXYPlot,
+  AreaSeries,
+  GradientDefs,
+  Hint
+} from "react-vis";
+import { YAxis } from "react-vis/es/index";
 
+const LineChart = ({ series }) => {
+  const colorRange = d3.schemeAccent;
 
+  const plots = series.map((data, index) => {
+    const mapped = data.map(({ x, y }, index) => ({
+      x: index,
+      y: parseFloat(y)
+    }));
 
-import raw from './output2.json'
+    return <LineSeries data={mapped} nullAccessor={d => !isNaN(d.y)} />;
+  });
 
+  const plotProps = { margin: { left: 30, right: 20, top: 20, bottom: 30 } };
 
-const LineChart = ({data = raw}) => {
+  return (
+    <FlexibleXYPlot {...plotProps}>
+      <VerticalGridLines tickTotal={7} />
+      <HorizontalGridLines />
+      {plots}
+      <XAxis tickTotal={7} />
+      <YAxis />
+    </FlexibleXYPlot>
+  );
+};
 
-  const mapped = data.map(({x, y}, index) => ({x: index, y}))
-  const mapped2 = data.map(({x, y}, index) => ({x: index, y: y - 1}))
-  const mapped3 = data.map(({x, y}, index) => ({x: index, y: y - 2}))
-
-
-  return <FlexibleXYPlot>
-    <VerticalGridLines tickTotal={7}/>
-    <HorizontalGridLines/>
-    <LineSeries data={mapped}/>
-    <LineSeries data={mapped2}/>
-    <LineSeries data={mapped3}/>
-    <XAxis tickTotal={7} tickFormat={v => data[v].x}/>
-    <YAxis/>
-  </FlexibleXYPlot>;
-}
-
-
-export default LineChart
+export default LineChart;

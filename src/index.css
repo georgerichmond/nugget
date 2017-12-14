@@ -1,12 +1,5 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  font-size: 62.5%;
-  height: 100%;
-
-}
-
-body p {
-  font-size: 0.8rem;
 }
