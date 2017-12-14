@@ -1,50 +1,36 @@
-import React, { Component } from "react";
-import PostList from "./components/PostList/PostList";
-import logo from "./img/nugget-logo.png";
-import glamorous from "glamorous";
+import React from "react";
+import { Provider } from "react-redux";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { reactReduxFirebase, firebaseStateReducer } from "react-redux-firebase";
+import logger from "redux-logger";
+import Layout from "./Layout/Layout";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+const firebaseConfig = {
+  apiKey: "AIzaSyC2ALnvG2NMd5yp1f0SyDpvX4NM3gai2_M",
+  authDomain: "nugget-stage.firebaseapp.com",
+  databaseURL: "https://nugget-stage.firebaseio.com",
+  projectId: "nugget-stage",
+  storageBucket: "nugget-stage.appspot.com",
+  messagingSenderId: "551989691075"
+};
+const reduxFirebaseConfig = { userProfile: "users" };
 
-import Upload from "./pages/Upload";
-import {Image} from "semantic-ui-react";
+const createStoreWithFirebaseAndLogger = compose(
+  applyMiddleware(logger),
+  reactReduxFirebase(firebaseConfig, reduxFirebaseConfig)
+)(createStore);
 
-const Container = glamorous.div({
-  height: "100vh",
-  width: "100vw",
-  maxWidth: "1200px",
-  margin: 'auto'
+const rootReducer = combineReducers({
+  firebase: firebaseStateReducer
 });
 
-const Menu = glamorous.header({
-  padding: '0.5rem',
-  height: "4rem",
-  display: 'flex',
-});
+const initialState = {};
+const store = createStoreWithFirebaseAndLogger(rootReducer, initialState);
 
-const Logo = () => (
-  <div>
-    <img style={{height: '100%'}} src={logo} alt="Nugget logo" />
-  </div>
+const App = () => (
+  <Provider store={store}>
+    <Layout />
+  </Provider>
 );
-
-const Main = glamorous.div({});
-
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Container>
-          <Menu borderless>
-            <Logo/>
-          </Menu>
-          <Main>
-            <Route exact path="/" component={PostList} />
-            <Route path="/upload" component={Upload} />
-          </Main>
-        </Container>
-      </Router>
-    );
-  }
-}
 
 export default App;

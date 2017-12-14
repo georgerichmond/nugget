@@ -1,11 +1,10 @@
-import React from 'react'
-import {Card, Image} from "semantic-ui-react";
+import React from "react";
+import { Card, Image } from "semantic-ui-react";
 import Chart from "../Chart/index";
 import Comments from "../Comments";
-import ed from '../../img/personas/ed.jpg'
+import ed from "../../img/personas/ed.jpg";
 
-
-const Post = ({chart: {data}}) => (
+const Post = ({ chart: { data } }) => (
   <Card fluid>
     <Card.Content>
       <Card.Meta
@@ -14,7 +13,7 @@ const Post = ({chart: {data}}) => (
           gridGap: "0.5rem",
           gridTemplateRows: "auto",
           gridTemplateColumns: "auto auto 1fr auto",
-          marginBottom: '1rem'
+          marginBottom: "1rem"
         }}
       >
         <Image avatar src={ed} />
@@ -25,9 +24,7 @@ const Post = ({chart: {data}}) => (
       <Card.Header>
         Carrots are the most important vegetable of them all
       </Card.Header>
-      <Card.Description>
-        Change in poverty over the years.
-      </Card.Description>
+      <Card.Description>Change in poverty over the years.</Card.Description>
 
       <Chart data={data} />
 
@@ -36,4 +33,4 @@ const Post = ({chart: {data}}) => (
   </Card>
 );
 
-export default Post
+export default Post;

@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 import Select from "semantic-ui-react/dist/es/addons/Select/Select";
 import Post from "../../components/Post";
-import ed from '../../img/personas/ed.jpg'
+import ed from "../../img/personas/ed.jpg";
 
 const Upload = ({ handleUpload }) => (
   <div style={{ marginBottom: "1rem" }}>
