@@ -1,2 +1,2 @@
-import Build from "./Build";
-export default Build;
+import BuildContainer from "./BuildContainer";
+export default BuildContainer;

@@ -10,7 +10,7 @@ const Spreadsheet = ({ data, handleAfterChange }) => {
     rowHeaders: true,
     colHeaders: true,
     minRows: 12,
-    minCols: 6,
+    minCols: 5,
     onAfterChange: handleAfterChange
   };
 

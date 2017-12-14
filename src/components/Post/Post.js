@@ -4,7 +4,7 @@ import Chart from "../Chart/index";
 import Comments from "../Comments";
 import ed from "../../img/personas/ed.jpg";
 
-const Post = ({ chart: { data } }) => (
+const Post = ({ chart: { data, options } }) => (
   <Card fluid>
     <Card.Content>
       <Card.Meta
@@ -26,7 +26,7 @@ const Post = ({ chart: { data } }) => (
       </Card.Header>
       <Card.Description>Change in poverty over the years.</Card.Description>
 
-      <Chart data={data} />
+      <Chart data={data} options={options} />
 
       <Comments />
     </Card.Content>

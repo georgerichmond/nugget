@@ -1,5 +1,6 @@
-import { UPLOAD_DATA, EDIT_DATA, PASTE_DATA } from "./actions";
+import {UPLOAD_DATA, EDIT_DATA, PASTE_DATA, CHOOSE_OPTION} from "./actions";
 import _ from "lodash";
+import exampleState from "./exampleState";
 
 const makeChanges = (state, action) => {
   const data = state.data ? _.clone(state.data) : [];
@@ -10,13 +11,15 @@ const makeChanges = (state, action) => {
   return { ...state, data };
 };
 
-const buildReducer = (state = {}, action) => {
+const buildReducer = (state = exampleState, action) => {
   switch (action.type) {
     case UPLOAD_DATA:
       return { ...state, data: action.payload };
     case EDIT_DATA:
     case PASTE_DATA:
       return makeChanges(state, action);
+    case CHOOSE_OPTION:
+      return {...state, options: {...state.options, ...action.payload}}
     default:
       return state;
   }

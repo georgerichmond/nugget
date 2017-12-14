@@ -2,9 +2,9 @@ import React from "react";
 import Post from "../../components/Post/Post";
 
 import data from "./data.json";
-import MultiLineChart from "../../components/MultiLineChart";
+import LineChart from "../../components/LineChart";
 
-const lineChart = <MultiLineChart data={data} />;
+const lineChart = <LineChart data={data} />;
 
 const Poverty = () => [<Post title="Poverty" chart={lineChart} />];
 

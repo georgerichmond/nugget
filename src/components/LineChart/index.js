@@ -9,12 +9,12 @@ import {
   FlexibleXYPlot,
   AreaSeries,
   GradientDefs,
-  Hint
+  Hint, VerticalBarSeries
 } from "react-vis";
 import { YAxis } from "react-vis/es/index";
 
-const LineChart = ({ series }) => {
-  const colorRange = d3.schemeAccent;
+const LineChart = ({ series, options }) => {
+  const SeriesComponent = options.chartType === 'bar' ? VerticalBarSeries : LineSeries;
 
   const plots = series.map((data, index) => {
     const mapped = data.map(({ x, y }, index) => ({
@@ -22,7 +22,13 @@ const LineChart = ({ series }) => {
       y: parseFloat(y)
     }));
 
-    return <LineSeries key={index} data={mapped} nullAccessor={d => !isNaN(d.y)} />;
+    return (
+      <SeriesComponent
+        key={index}
+        data={mapped}
+        nullAccessor={d => !isNaN(d.y)}
+      />
+    );
   });
 
   const plotProps = { margin: { left: 40, right: 20, top: 20, bottom: 30 } };
