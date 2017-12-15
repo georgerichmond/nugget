@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 import * as d3 from "d3-scale-chromatic";
 import "../../../node_modules/react-vis/dist/style.css";
 import {
@@ -9,12 +10,15 @@ import {
   FlexibleXYPlot,
   AreaSeries,
   GradientDefs,
-  Hint, VerticalBarSeries
+  Hint,
+  VerticalBarSeries,
+  DiscreteColorLegend
 } from "react-vis";
 import { YAxis } from "react-vis/es/index";
 
 const LineChart = ({ series, options }) => {
-  const SeriesComponent = options.chartType === 'bar' ? VerticalBarSeries : LineSeries;
+  const SeriesComponent =
+    options.chartType === "bar" ? VerticalBarSeries : LineSeries;
 
   const plots = series.map((data, index) => {
     const mapped = data.map(({ x, y }, index) => ({
@@ -35,6 +39,10 @@ const LineChart = ({ series, options }) => {
 
   return (
     <FlexibleXYPlot {...plotProps}>
+      <DiscreteColorLegend
+        items={["apples", "carrots"]}
+        orientation="horizontal"
+      />
       <VerticalGridLines tickTotal={7} />
       <HorizontalGridLines />
       {plots}
