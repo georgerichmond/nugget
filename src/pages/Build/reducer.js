@@ -1,4 +1,4 @@
-import {UPLOAD_DATA, EDIT_DATA, PASTE_DATA, CHOOSE_OPTION} from "./actions";
+import { UPLOAD_DATA, EDIT_DATA, PASTE_DATA, CHOOSE_OPTION } from "./actions";
 import _ from "lodash";
 import exampleState from "./exampleState";
 
@@ -19,7 +19,15 @@ const buildReducer = (state = exampleState, action) => {
     case PASTE_DATA:
       return makeChanges(state, action);
     case CHOOSE_OPTION:
-      return {...state, options: {...state.options, ...action.payload}}
+      return { ...state, layout: { ...state.layout, ...action.payload } };
+    case "EDIT_HEADER":
+      return { ...state, editing: "header" };
+    case "INPUT":
+      const newState = _.cloneDeep(state);
+      _.keys(action.payload).forEach(key => {
+        _.set(newState, key, action.payload[key]);
+      });
+      return newState;
     default:
       return state;
   }

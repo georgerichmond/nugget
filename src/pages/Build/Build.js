@@ -1,18 +1,22 @@
 import React from "react";
-import {Button, Dropdown, Select} from "semantic-ui-react";
+import { Button, Dropdown, Select } from "semantic-ui-react";
 import Upload from "./Upload";
 import Spreadsheet from "./Spreadsheet";
 import EditablePost from "./EditablePost";
 
-
-const BuildLayout = ({handleSave, handleOption, config, options}) => {
-
-  const handleChooseType = (e, {value}) => {
-    handleOption({chartType: value})
-  }
+const BuildLayout = ({
+  handleSave,
+  handleOption,
+  config,
+  layout,
+  firebase
+}) => {
+  const handleChooseType = (e, { value }) => {
+    handleOption({ chartType: value });
+  };
 
   return (
-    <div style={{padding: "1rem"}}>
+    <div style={{ padding: "1rem" }}>
       <h1>Create your nugget</h1>
       <div
         style={{
@@ -22,28 +26,27 @@ const BuildLayout = ({handleSave, handleOption, config, options}) => {
         }}
       >
         <div>
-          <Upload/>
+          <Upload />
         </div>
         <div>
           <Dropdown
             selection
             options={config.chartType}
-            value={options.chartType}
+            value={layout.chartType}
             onChange={handleChooseType}
-            style={{marginRight: '1rem'}}
+            style={{ marginRight: "1rem" }}
           />
           <Button onClick={handleSave}>Save</Button>
         </div>
         <div>
-          <Spreadsheet/>
+          <Spreadsheet />
         </div>
         <div>
-          <EditablePost/>
+          <EditablePost />
         </div>
       </div>
     </div>
   );
-}
-
+};
 
 export default BuildLayout;

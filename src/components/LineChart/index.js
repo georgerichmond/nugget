@@ -16,9 +16,9 @@ import {
 } from "react-vis";
 import { YAxis } from "react-vis/es/index";
 
-const LineChart = ({ series, options }) => {
+const LineChart = ({ series, layout }) => {
   const SeriesComponent =
-    options.chartType === "bar" ? VerticalBarSeries : LineSeries;
+    layout.chartType === "bar" ? VerticalBarSeries : LineSeries;
 
   const plots = series.map((data, index) => {
     const mapped = data.map(({ x, y }, index) => ({

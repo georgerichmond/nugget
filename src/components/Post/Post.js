@@ -4,7 +4,14 @@ import Chart from "../Chart/index";
 import Comments from "../Comments";
 import ed from "../../img/personas/ed.jpg";
 
-const Post = ({ chart: { data, options } }) => (
+const Post = ({
+  chart: { data, layout },
+  handleHeaderClick,
+  editing,
+  content,
+  handleInput,
+  editable
+}) => (
   <Card fluid>
     <Card.Content>
       <Card.Meta
@@ -21,12 +28,24 @@ const Post = ({ chart: { data, options } }) => (
         <span />
         <span>15 Feb 2017</span>
       </Card.Meta>
-      <Card.Header>
-        Carrots are the most important vegetable of them all
+      <Card.Header
+        data-name="headline"
+        onClick={handleHeaderClick}
+        contentEditable={editable}
+        suppressContentEditableWarning={editable}
+        onInput={handleInput}
+      >
+        headline
       </Card.Header>
-      <Card.Description>Change in poverty over the years.</Card.Description>
-
-      <Chart data={data} options={options} />
+      <Card.Description
+        data-name="chart.title"
+        contentEditable={editable}
+        suppressContentEditableWarning={editable}
+        onInput={handleInput}
+      >
+        {layout.title}
+      </Card.Description>
+      <Chart data={data} layout={layout} />
 
       <Comments />
     </Card.Content>

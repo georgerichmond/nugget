@@ -12,6 +12,10 @@
         "key" : "Cache-Control",
         "value" : "max-age=300"
       } ]
+    } ],
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
     } ]
   }
 }

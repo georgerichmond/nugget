@@ -6,8 +6,9 @@ const exampleState = {
     ["2002", "43", "23"],
     ["2003", "31", "47.6"]
   ],
-  options: {
-    chartType: 'line'
+  layout: {
+    title: "Change in poverty over the years",
+    chartType: "line"
   }
 };
 
