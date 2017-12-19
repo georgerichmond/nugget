@@ -9,7 +9,14 @@ class ShowPost extends React.Component{
 
   render() {
     if(!this.props.post) return null;
-    return <Post headline={this.props.post.headline} chart={{...this.props.post}}/>
+    return(
+    <div style={{width: '50vw', height: '50vh'}}>
+    <Post headline={this.props.post.headline} chart={{...this.props.post}}/>
+    </div>
+
+    )
+
+
   }
 }
 
