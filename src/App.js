@@ -7,6 +7,7 @@ import Layout from "./Layout/Layout";
 import { routerForBrowser } from "redux-little-router";
 import routes from "./routes";
 import buildReducer from "./pages/Build/reducer";
+import postsReducer from './pages/ShowPost/reducer'
 
 const { reducer, middleware, enhancer } = routerForBrowser({
   routes
@@ -20,6 +21,7 @@ const createMyStore = compose(
 )(createStore);
 
 const rootReducer = combineReducers({
+  posts: postsReducer,
   router: reducer,
   build: buildReducer
 });

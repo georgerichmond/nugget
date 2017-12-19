@@ -6,6 +6,7 @@ import { Fragment } from "redux-little-router";
 import Home from "../pages/Home";
 import Build from "../pages/Build";
 import Foo from "../Foo";
+import ShowPost from "../pages/ShowPost";
 
 const Container = glamorous.div({
   height: "100vh",
@@ -45,6 +46,9 @@ class Layout extends Component {
             </Fragment>
             <Fragment forRoute="/build">
               <Build />
+            </Fragment>
+            <Fragment forRoute="/posts">
+              <ShowPost />
             </Fragment>
           </Main>
         </Container>

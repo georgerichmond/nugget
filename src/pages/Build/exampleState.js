@@ -9,7 +9,8 @@ const exampleState = {
   layout: {
     title: "Change in poverty over the years",
     chartType: "line"
-  }
+  },
+  headline: 'This is the headline'
 };
 
 export default exampleState;

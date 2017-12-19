@@ -4,6 +4,9 @@ const routes = {
   },
   "/": {
     title: "Home"
+  },
+  "/posts/:id": {
+
   }
 };
 

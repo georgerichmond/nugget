@@ -2,6 +2,7 @@ import EditablePost from "./EditablePost";
 import { connect } from "react-redux";
 
 const mapStateToProps = ({ build }) => ({
+  headline: build.headline,
   data: build.data,
   layout: build.layout
 });
@@ -15,7 +16,6 @@ const mapDispatchToProps = dispatch => {
   return {
     handleChange: payload => dispatch({ type: "EDIT_CHART", payload }),
     handleInput: event => dispatch(handleInput(event)),
-    handleHeaderClick: () => dispatch({ type: "EDIT_HEADER" })
   };
 };
 

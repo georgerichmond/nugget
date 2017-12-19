@@ -9,7 +9,6 @@ const BuildLayout = ({
   handleOption,
   config,
   layout,
-  firebase
 }) => {
   const handleChooseType = (e, { value }) => {
     handleOption({ chartType: value });

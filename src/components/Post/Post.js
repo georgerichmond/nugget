@@ -5,6 +5,7 @@ import Comments from "../Comments";
 import ed from "../../img/personas/ed.jpg";
 
 const Post = ({
+  headline,
   chart: { data, layout },
   handleHeaderClick,
   editing,
@@ -33,15 +34,15 @@ const Post = ({
         onClick={handleHeaderClick}
         contentEditable={editable}
         suppressContentEditableWarning={editable}
-        onInput={handleInput}
+        onBlur={handleInput}
       >
-        headline
+        {headline}
       </Card.Header>
       <Card.Description
-        data-name="chart.title"
+        data-name="layout.title"
         contentEditable={editable}
         suppressContentEditableWarning={editable}
-        onInput={handleInput}
+        onBlur={handleInput}
       >
         {layout.title}
       </Card.Description>
