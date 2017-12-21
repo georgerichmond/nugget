@@ -1,28 +1,29 @@
 import React from "react";
-import Post from "../Post";
 import "./styles.css";
-import Chart from "../Chart";
-import LineChart from "../LineChart";
-import BarChart from "../BarChart/index";
-import Unemployment from "../../posts/Unemployment";
-import Inequality from "../../posts/Inequality";
-import Employment from "../../posts/Employment";
-import Cpih from "../../posts/Cpih";
-import Poverty from "../../posts/Poverty";
+import database from "../../database";
+import * as _ from "lodash";
+import Post from "../Post";
 
-const posts = [{}];
+class PostList extends React.Component {
+  state = { posts: {} };
 
-const lineChart = <LineChart />;
-const barChart = <BarChart />;
+  componentDidMount() {
+    const postsRef = database.ref("posts");
+    postsRef.on("value", snapshot => {
+      const posts = { ...this.state.posts, ...snapshot.val() };
+      this.setState({ posts });
+    });
+  }
 
-const PostList = () => (
-  <div className="postList">
-    <Poverty />
-    <Unemployment />
-    <Inequality />
-    <Employment />
-    <Cpih />
-  </div>
-);
+  render() {
+    return (
+      <div className="postList">
+        {
+          Object.values(this.state.posts).map(post => <Post {...post}/>)
+        }
+      </div>
+    );
+  }
+}
 
 export default PostList;

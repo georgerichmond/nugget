@@ -3,18 +3,18 @@ import _ from "lodash";
 import exampleState from "./exampleState";
 
 const makeChanges = (state, action) => {
-  const data = state.data ? _.clone(state.data) : [];
+  const data = state.chart.data ? _.clone(state.chart.data) : [];
   action.payload.changes.forEach(change => {
     const [row, column, oldValue, newValue] = change;
     _.set(data, [row, column], newValue);
   });
-  return { ...state, data };
+  return { ...state, chart: {...state.chart, data} };
 };
 
 const buildReducer = (state = exampleState, action) => {
   switch (action.type) {
     case UPLOAD_DATA:
-      return { ...state, data: action.payload };
+      return { ...state, chart: {...state.chart, data: action.payload} };
     case EDIT_DATA:
     case PASTE_DATA:
       return makeChanges(state, action);

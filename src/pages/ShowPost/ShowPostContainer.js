@@ -1,7 +1,7 @@
 import ShowPost from "./ShowPost";
 import { connect } from "react-redux";
 import database from "../../database";
-import _ from 'lodash'
+import _ from "lodash";
 
 export function getPost(id) {
   return dispatch => {
@@ -20,10 +20,10 @@ export function getPost(id) {
 }
 
 const mapStateToProps = ({ posts, router }) => {
-  return ({
+  return {
     post: posts[router.params.id],
     router
-  });
+  };
 };
 
 const mapDispatchToProps = dispatch => {

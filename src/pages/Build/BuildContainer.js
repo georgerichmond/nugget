@@ -16,14 +16,12 @@ const handleSave = (dispatch, getState) => () => {
     .push(build)
     .then(({ key }) => {
       dispatch({ type: "SAVE_SUCCESS", payload: { key } });
-      dispatch(push('/posts/' + key));
+      dispatch(push("/posts/" + key));
     });
 };
 
 const mapStateToProps = ({ build }) => ({
-  headline: build.headline,
-  data: build.data,
-  layout: build.layout,
+  build,
   config
 });
 

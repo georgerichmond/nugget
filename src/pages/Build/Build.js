@@ -4,12 +4,7 @@ import Upload from "./Upload";
 import Spreadsheet from "./Spreadsheet";
 import EditablePost from "./EditablePost";
 
-const BuildLayout = ({
-  handleSave,
-  handleOption,
-  config,
-  layout,
-}) => {
+const BuildLayout = ({ handleSave, handleOption, config, build }) => {
   const handleChooseType = (e, { value }) => {
     handleOption({ chartType: value });
   };
@@ -31,7 +26,7 @@ const BuildLayout = ({
           <Dropdown
             selection
             options={config.chartType}
-            value={layout.chartType}
+            value={build.chart.layout.chartType}
             onChange={handleChooseType}
             style={{ marginRight: "1rem" }}
           />

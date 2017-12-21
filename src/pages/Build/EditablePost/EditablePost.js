@@ -2,9 +2,8 @@ import React from "react";
 import Post from "../../../components/Post";
 
 const EditablePost = ({
+  chart,
   headline,
-  data,
-  layout,
   handleHeaderClick,
   editing,
   handleChange,
@@ -12,7 +11,7 @@ const EditablePost = ({
 }) => (
   <Post
     headline={headline}
-    chart={{ data, layout }}
+    chart={chart}
     handleHeaderClick={handleHeaderClick}
     editable={true}
     editing={editing}

@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = ({ build }) => ({
   headline: build.headline,
-  data: build.data,
-  layout: build.layout
+  chart: build.chart
 });
 
 const handleInput = event => {
@@ -15,7 +14,7 @@ const handleInput = event => {
 const mapDispatchToProps = dispatch => {
   return {
     handleChange: payload => dispatch({ type: "EDIT_CHART", payload }),
-    handleInput: event => dispatch(handleInput(event)),
+    handleInput: event => dispatch(handleInput(event))
   };
 };
 

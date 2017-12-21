@@ -18,7 +18,7 @@ const handleAfterChange = dispatch => (changes, type) => {
   }
 };
 
-const mapStateToProps = ({ build }) => ({ data: build.data });
+const mapStateToProps = ({ build }) => ({ data: build.chart.data });
 
 const mapDispatchToProps = dispatch => {
   return {

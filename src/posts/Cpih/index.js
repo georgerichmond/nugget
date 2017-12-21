@@ -4,8 +4,12 @@ import LineChart from "../../components/LineChart";
 
 import data from "./data.json";
 
-const lineChart = <LineChart data={data} />;
+const headline = "foo"
+const layout = {title: 'ning'}
 
-const Cpih = () => [<Post title="CPIH" chart={lineChart} />];
+const Cpih = () => <Post
+  headline={headline}
+  chart={{ data, layout }}
+/>;
 
 export default Cpih;
